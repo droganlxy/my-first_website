@@ -1,0 +1,132 @@
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 确保视频覆盖整个背景并保持宽高比 */
+    z-index: -1;
+}
+
+.calculator {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px; /* 限制最大宽度 */
+    height: 48%; /* 40%的高度 */
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px #000;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.calculator-screen {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: #252525;
+    color: #fff;
+    text-align: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 1.5em;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 改为5列 */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* 统一所有按钮样式 */
+.btn {
+    height: 60px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #444;
+}
+
+/* 数字按钮样式 */
+.btn.number {
+    background-color: #000;
+}
+
+/* 运算符按钮样式 */
+.btn.operator {
+    background-color: #333;
+}
+
+/* 等号按钮样式 */
+.btn.equal {
+    background-color: #000;
+    grid-column: span 2; /* 等号按钮跨越两列 */
+}
+
+/* 删除多余的样式 */
+.btn[onclick="backspace()"],
+.btn[onclick="clearAll()"] {
+    background-color: #000;
+}
+
+.history {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.history h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+#history-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+#history-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+
+#history-list li:last-child {
+    border-bottom: none;
+}
+
+.display input {
+    width: 100%;
+    height: 60px;
+    background-color: #252525;
+    color: #fff;
+    text-align: right;
+    padding: 10px;
+    font-size: 2em;
+    border: none;
+    border-radius: 5px;
+}
